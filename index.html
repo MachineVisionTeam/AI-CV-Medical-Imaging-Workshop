@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI and Computer Vision in Medical Imaging Workshop</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body Styling */
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      background-color: #f9f9f9;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Header Section */
+    header {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/banner.png') no-repeat center center fixed;
+      background-size: cover;
+      text-align: center;
+      color: white;
+      padding: 100px 20px;
+      position: relative;
+    }
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+    header p {
+      font-size: 1.2rem;
+      font-weight: 300;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Sticky Navigation Bar */
+    nav {
+      background: #333;
+      padding: 15px 0;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      color: white;
+      margin: 0 30px; /* Increased spacing between items */
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    nav a:hover {
+      color: #ffdd57;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+
+    /* Sections */
+    section {
+      background: white;
+      padding: 30px 20px;
+      margin-bottom: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      color: #333;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #333;
+      padding-bottom: 10px;
+    }
+    ul {
+      list-style-type: disc;
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+    ul li {
+      margin-bottom: 5px;
+    }
+     /* Key Topics Section - Grid Layout */
+     .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    .topic-card {
+      background: #f9f9f9;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .topic-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+    .topic-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      color: #333;
+    }
+    .topic-card ul {
+      list-style-type: disc;
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+    .topic-card ul li {
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    
+
+    /* Buttons */
+    .button {
+      display: inline-block;
+      background: #333;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    .button:hover {
+      background: #555;
+    }
+
+    /* Footer */
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 40px;
+    }
+    footer p {
+      font-size: 0.9rem;
+    }
+    footer .social-links {
+      margin: 10px 0;
+    }
+    footer .social-links a {
+      color: white;
+      margin: 0 10px;
+      font-size: 1.2rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+      nav a {
+        font-size: 0.9rem;
+        margin: 0 10px; /* Reduced spacing on smaller screens */
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>AI and Computer Vision in Medical Imaging Workshop</h1>
+    <p>One-Day Interactive Workshop</p>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="#description">Description</a>
+    <a href="#topics"><i class="fas fa-list-ul"></i> Key Topics</a>
+    <a href="#audience"><i class="fas fa-users"></i> Who Should Attend?</a>
+    <a href="#important-dates"><i class="fas fa-calendar-alt"></i> Important Dates</a>
+    <a href="#submission"><i class="fas fa-file-upload"></i> Abstract Submission</a>
+    <a href="#program"><i class="fas fa-book-open"></i> Program</a>
+    <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container">
+    <!-- Description Section -->
+    <section id="description">
+      <h2>Description</h2>
+      <p>Medical imaging is a cornerstone of modern healthcare, enabling clinicians and researchers to detect, diagnose, and monitor diseases with high precision. The emergence of Artificial Intelligence (AI) and Computer Vision has dramatically transformed medical image analysis, providing automated, data-driven insights that improve efficiency and accuracy.</p>
+      <p>This one-day interactive workshop will introduce participants to the latest advancements in AI-based medical image analysis, focusing on histopathology, radiology, and multimodal medical imaging. Attendees will gain insights into state-of-the-art deep learning models, image processing techniques, and interpretability methods that are shaping the future of computational pathology and AI-driven diagnostics.</p>
+      <p>The workshop is designed to balance theoretical concepts with practical, hands-on experience. Expert speakers will cover key topics such as deep learning architectures, feature extraction, segmentation techniques, dataset challenges, and AI ethics in healthcare. Additionally, using tools, participants will be able to train AI models on real-world medical image datasets.</p>
+    </section>
+
+    <!-- Key Topics Section -->
+    <!-- Key Topics Section -->
+    <section id="topics">
+        <h2>Key Topics Covered</h2>
+        <div class="topics-grid">
+          <div class="topic-card">
+            <h3>Introduction to AI and Computer Vision in Medical Imaging</h3>
+            <ul>
+              <li>Fundamentals of AI-driven image analysis</li>
+              <li>Role of deep learning in medical imaging</li>
+            </ul>
+          </div>
+          <div class="topic-card">
+            <h3>Medical Image Processing and Preprocessing Techniques</h3>
+            <ul>
+              <li>Noise reduction, contrast enhancement, and normalization</li>
+              <li>Registration and segmentation in medical images</li>
+            </ul>
+          </div>
+          <div class="topic-card">
+            <h3>Deep Learning Architectures for Medical Image Analysis</h3>
+            <ul>
+              <li>Convolutional Neural Networks (CNNs) for classification</li>
+              <li>Vision Transformers and their applications</li>
+            </ul>
+        </div>
+        <div class="topic-card">
+          <h3>Histopathology Image Analysis with AI</h3>
+          <ul>
+            <li>Whole Slide Image (WSI) processing</li>
+            <li>Tumor detection and grading</li>
+          </ul>
+        </div>
+        <div class="topic-card">
+          <h3>Feature Extraction and Representation Learning</h3>
+          <ul>
+            <li>Traditional vs. deep learning-based feature extraction</li>
+            <li>Self-supervised and contrastive learning in medical imaging</li>
+          </ul>
+        </div>
+        <div class="topic-card">
+          <h3>Explainability and Interpretability in AI for Healthcare</h3>
+          <ul>
+            <li>Importance of AI explainability in clinical applications</li>
+            <li>Grad-CAM and SHAP for model interpretability</li>
+          </ul>
+        </div>
+        <div class="topic-card">
+          <h3>Dataset Challenges and Ethical Considerations</h3>
+          <ul>
+            <li>Public datasets in medical imaging (TCGA, CAMELYON, etc.)</li>
+            <li>Bias, privacy, and regulatory compliance in AI models</li>
+          </ul>
+        </div>
+        <div class="topic-card">
+          <h3>Multi-Modal Data Fusion in Medical Imaging</h3>
+          <ul>
+            <li>Combining histopathology, radiology, and genomics</li>
+            <li>Multi-modal AI approaches for better diagnosis</li>
+          </ul>
+        </div>
+        <div class="topic-card">
+          <h3>Hands-on Session: Training Deep Learning Models for Medical Imaging</h3>
+          <ul>
+            <li>Practical implementation using TensorFlow/PyTorch</li>
+            <li>Model evaluation metrics and performance analysis</li>
+          </ul>
+        </div>
+        <div class="topic-card">
+          <h3>Challenges and Future Trends in AI for Medical Imaging</h3>
+          <ul>
+            <li>Current limitations and open research questions</li>
+            <li>Future directions in AI-driven healthcare</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Who Should Attend? Section -->
+    <section id="audience">
+      <h2>Who Should Attend?</h2>
+      <p>This workshop is ideal for:</p>
+      <ul>
+        <li>Undergraduate and graduate students in AI, computer vision, biomedical engineering, and related fields</li>
+        <li>Researchers working in medical imaging and computational pathology</li>
+        <li>Medical professionals and pathologists interested in AI applications</li>
+        <li>Engineers and data scientists developing AI solutions for healthcare</li>
+      </ul>
+    </section>
+
+    <!-- Important Dates Section -->
+    <section id="important-dates">
+      <h2>Important Dates</h2>
+      <p>(To be announced soon)</p>
+    </section>
+
+    <!-- Abstract Submission Section -->
+    <section id="submission">
+      <h2>Abstract Submission</h2>
+      <p>Please submit an abstract via the online submission system. Details on submission guidelines and deadlines will be added soon.</p>
+     
+    </section>
+
+    <!-- Program Section -->
+    <section id="program">
+      <h2>Program</h2>
+      <p>The program schedule will be announced shortly. Stay tuned for updates!</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>For any inquiries, please contact us at:</p>
+      <ul>
+        <li>Email: </li>
+        <li>Phone: </li>
+      </ul>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 AI and Computer Vision in Medical Imaging Workshop. All rights reserved.</p>
+   
+  </footer>
+</body>
+</html>
