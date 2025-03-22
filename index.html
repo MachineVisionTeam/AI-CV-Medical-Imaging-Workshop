@@ -13,14 +13,28 @@
       box-sizing: border-box;
     }
 
-    /* Body Styling */
+    /* Body Styling with improved background */
     body {
       font-family: 'Arial', sans-serif;
       line-height: 1.6;
-      background-color: #f9f9f9;
+      background: linear-gradient(135deg, #f5f7fa 0%, #cec7e7 100%);
+      background-attachment: fixed;
       color: #333;
       margin: 0;
       padding: 0;
+      position: relative;
+    }
+
+    /* Add subtle pattern overlay to the background */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('data:image/svg+xml,%3Csvg width="20" height="20" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M0 0h20v20H0z" fill="%23ffffff" fill-opacity="0.05"/%3E%3C/svg%3E');
+      z-index: -1;
     }
 
     /* Header Section */
@@ -43,12 +57,12 @@
       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
     }
 
-    /* Sticky Navigation Bar */
+    /* Sticky Navigation Bar with improved design */
     nav {
-      background: #333;
+      background: linear-gradient(to right, #333, #4a4a4a);
       padding: 15px 0;
       text-align: center;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -60,9 +74,24 @@
       font-weight: bold;
       font-size: 1rem;
       transition: all 0.3s ease;
+      position: relative;
+      padding-bottom: 5px;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #ffdd57;
+      transition: width 0.3s ease;
     }
     nav a:hover {
       color: #ffdd57;
+    }
+    nav a:hover::after {
+      width: 100%;
     }
 
     /* Main Container */
@@ -72,19 +101,25 @@
       padding: 0 20px;
     }
 
-    /* Sections */
+    /* Sections with improved card design */
     section {
-      background: white;
+      background: rgba(255, 255, 255, 0.9);
       padding: 30px 20px;
       margin-bottom: 30px;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: transform 0.3s ease;
+    }
+    section:hover {
+      transform: translateY(-5px);
     }
     h2 {
-      color: #333;
+      color: #2a5298;
       font-size: 1.8rem;
       margin-bottom: 20px;
-      border-bottom: 2px solid #333;
+      border-bottom: 2px solid #4a89dc;
       padding-bottom: 10px;
     }
     ul {
@@ -143,18 +178,6 @@
     .format-item:hover .format-bg {
       opacity: 0.25;
       transform: scale(1.05);
-    }
-    
-    .lectures-bg {
-      background: url('images/KTR-zC73Cr8OY28weQSt.jpg') no-repeat;
-    }
-    
-    .hands-on-bg {
-      background: url('images/hands-on.jpg') no-repeat;
-    }
-    
-    .panel-bg {
-      background: url('images/panel.jpg') no-repeat;
     }
     
     .format-icon {
@@ -393,7 +416,7 @@
       margin-bottom: 10px;
     }
     
-    /* Venue Section with Transparent Background */
+    /* Venue Section - FIXED the atrium image */
     .venue-container {
       text-align: center;
       margin-top: 40px;
@@ -414,15 +437,17 @@
       width: 100%;
       height: 100%;
       z-index: -1;
-      opacity: 0.25;
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
+      opacity: 0.3;
       transition: all 0.3s ease;
     }
     
     .atrium-bg {
-      background: url('images/atrium-building.jpg') no-repeat;
+      background: url('images/atrium-building.jpg');
+      background-size: cover;
+      background-position: center center;
     }
     
     .venue-container:hover .venue-bg {
@@ -483,10 +508,10 @@
       font-size: 18px;
     }
 
-    /* Buttons */
+    /* Buttons with improved design */
     .button {
       display: inline-block;
-      background: #4a89dc;
+      background: linear-gradient(to right, #4a89dc, #3a5d9c);
       color: white;
       padding: 12px 25px;
       text-decoration: none;
@@ -495,20 +520,37 @@
       transition: all 0.3s ease;
       margin-top: 15px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border: none;
+      position: relative;
+      overflow: hidden;
+    }
+    .button::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: -100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: all 0.5s ease;
     }
     .button:hover {
-      background: #3a5d9c;
+      background: linear-gradient(to right, #3a5d9c, #2a4d8c);
       transform: translateY(-3px);
       box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
     }
+    .button:hover::after {
+      left: 100%;
+    }
 
-    /* Footer */
+    /* Footer with improved gradient */
     footer {
-      background: #333;
+      background: linear-gradient(to right, #333, #444);
       color: white;
       text-align: center;
       padding: 25px 0;
       margin-top: 40px;
+      box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
     }
     footer p {
       font-size: 0.9rem;
