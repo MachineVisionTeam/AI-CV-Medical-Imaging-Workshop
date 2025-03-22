@@ -95,54 +95,411 @@
     ul li {
       margin-bottom: 5px;
     }
-     /* Key Topics Section - Grid Layout */
-     .topics-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
+    
+    /* Workshop Format Section - ENHANCED */
+    .format-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+      margin-top: 20px;
     }
-    .topic-card {
-      background: #f9f9f9;
+    
+    .format-item {
+      flex: 1;
+      min-width: 300px;
+      background: rgba(255, 255, 255, 0.85);
       padding: 25px;
       border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
     }
-    .topic-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    
+    .format-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
     }
-    .topic-card h3 {
+    
+    .format-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 0.5;
+      background-size: cover;
+      background-position: center;
+      transition: all 0.3s ease;
+    }
+    
+    .format-item:hover .format-bg {
+      opacity: 0.25;
+      transform: scale(1.05);
+    }
+    
+    .lectures-bg {
+      background: url('images/KTR-zC73Cr8OY28weQSt.jpg') no-repeat;
+    }
+    
+    .hands-on-bg {
+      background: url('images/hands-on.jpg') no-repeat;
+    }
+    
+    .panel-bg {
+      background: url('images/panel.jpg') no-repeat;
+    }
+    
+    .format-icon {
+      font-size: 48px;
+      color: #4a89dc;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .format-item h3 {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      color: #333;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .format-item p {
+      color: #444;
+      line-height: 1.5;
+      position: relative;
+      z-index: 2;
+    }
+    
+    /* Enhanced Join Us Button */
+    .cta-container {
+      text-align: center;
+      margin-top: 40px;
+      padding: 30px;
+      background: linear-gradient(145deg, rgba(74, 137, 220, 0.9), rgba(58, 93, 156, 0.9));
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(74, 137, 220, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-container::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+      transform: rotate(30deg);
+    }
+    
+    .cta-text {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: white;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    
+    .cta-subtitle {
+      color: rgba(255, 255, 255, 0.9);
       font-size: 1.2rem;
+      margin-bottom: 25px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .highlight-text {
+      font-weight: bold;
+      color: #ffdd57;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    }
+    
+    .cta-button {
+      display: inline-block;
+      background: white;
+      color: #4a89dc;
+      padding: 15px 40px;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    
+    .cta-button::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+      transition: all 0.5s ease;
+      z-index: -1;
+    }
+    
+    .cta-button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      color: #3a5d9c;
+    }
+    
+    .cta-button:hover::after {
+      left: 100%;
+    }
+    
+    /* Key Topics Section - Improved Design */
+    .key-topics-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    
+    .topic-column {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .topic-item {
+      background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+      border-left: 4px solid #4a89dc;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-radius: 0 8px 8px 0;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .topic-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+      border-left: 4px solid #3a5d9c;
+    }
+    
+    .topic-item h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: #333;
+      display: flex;
+      align-items: center;
+    }
+    
+    .topic-item h3 i {
+      margin-right: 10px;
+      color: #4a89dc;
+    }
+    
+    .topic-item ul {
+      margin-left: 25px;
+    }
+    
+    .topic-item li {
+      margin-bottom: 8px;
+      position: relative;
+    }
+    
+    /* Important Dates Section - Timeline Design */
+    .timeline {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 20px;
+    }
+    
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      background-color: #4a89dc;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -3px;
+      border-radius: 5px;
+    }
+    
+    .timeline-container {
+      padding: 10px 40px;
+      position: relative;
+      background-color: inherit;
+      width: 50%;
+    }
+    
+    .timeline-container::after {
+      content: '';
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      right: -13px;
+      background-color: white;
+      border: 4px solid #4a89dc;
+      top: 15px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+    
+    .left {
+      left: 0;
+    }
+    
+    .right {
+      left: 50%;
+    }
+    
+    .right::after {
+      left: -13px;
+    }
+    
+    .timeline-content {
+      padding: 20px 25px;
+      background-color: white;
+      position: relative;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .timeline-content h3 {
+      margin-bottom: 10px;
+      color: #4a89dc;
+      font-size: 1.3rem;
+    }
+    
+    .timeline-date {
+      font-weight: bold;
+      color: #333;
+    }
+    
+    .timeline-icon {
+      font-size: 24px;
+      color: #4a89dc;
+      margin-bottom: 10px;
+    }
+    
+    /* Venue Section with Transparent Background */
+    .venue-container {
+      text-align: center;
+      margin-top: 40px;
+      background: linear-gradient(145deg, rgba(248, 249, 250, 0.85), rgba(233, 236, 239, 0.85));
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+    }
+    
+    .venue-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 0.25;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transition: all 0.3s ease;
+    }
+    
+    .atrium-bg {
+      background: url('images/atrium-building.jpg') no-repeat;
+    }
+    
+    .venue-container:hover .venue-bg {
+      opacity: 0.35;
+      transform: scale(1.02);
+    }
+    
+    .venue-icon {
+      font-size: 48px;
+      color: #4a89dc;
+      margin-bottom: 15px;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .venue-details {
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .venue-address {
+      color: #666;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Program Section */
+    .program-committee {
+      margin-top: 20px;
+    }
+    .program-committee h3 {
+      font-size: 1.3rem;
       margin-bottom: 15px;
       color: #333;
     }
-    .topic-card ul {
-      list-style-type: disc;
-      padding-left: 20px;
-      margin-top: 10px;
+    .committee-member {
+      margin-bottom: 15px;
+      padding: 15px;
+      background: #f8f9fa;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      position: relative;
+      padding-left: 40px;
+      transition: all 0.3s ease;
     }
-    .topic-card ul li {
-      margin-bottom: 8px;
-      font-size: 0.95rem;
-      color: #555;
+    .committee-member:hover {
+      transform: translateX(5px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
-
-    
+    .committee-member i {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #4a89dc;
+      font-size: 18px;
+    }
 
     /* Buttons */
     .button {
       display: inline-block;
-      background: #333;
+      background: #4a89dc;
       color: white;
-      padding: 10px 20px;
+      padding: 12px 25px;
       text-decoration: none;
-      border-radius: 5px;
+      border-radius: 50px;
       font-weight: bold;
       transition: all 0.3s ease;
+      margin-top: 15px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
     .button:hover {
-      background: #555;
+      background: #3a5d9c;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
     }
 
     /* Footer */
@@ -150,11 +507,12 @@
       background: #333;
       color: white;
       text-align: center;
-      padding: 15px 0;
+      padding: 25px 0;
       margin-top: 40px;
     }
     footer p {
       font-size: 0.9rem;
+      margin-bottom: 15px;
     }
     footer .social-links {
       margin: 10px 0;
@@ -162,7 +520,12 @@
     footer .social-links a {
       color: white;
       margin: 0 10px;
-      font-size: 1.2rem;
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+    }
+    footer .social-links a:hover {
+      color: #4a89dc;
+      transform: scale(1.2);
     }
 
     /* Responsive Design */
@@ -180,6 +543,59 @@
       h2 {
         font-size: 1.5rem;
       }
+      
+      /* Timeline responsive fixes */
+      .timeline::after {
+        left: 31px;
+      }
+      
+      .timeline-container {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+      
+      .timeline-container::before {
+        left: 60px;
+        border: medium solid white;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent white transparent transparent;
+      }
+      
+      .left::after, .right::after {
+        left: 18px;
+      }
+      
+      .right {
+        left: 0%;
+      }
+      
+      nav {
+        overflow-x: auto;
+        white-space: nowrap;
+        padding: 15px 5px;
+      }
+      
+      .format-container {
+        flex-direction: column;
+      }
+      
+      .format-item {
+        margin-bottom: 20px;
+      }
+      
+      .cta-text {
+        font-size: 1.3rem;
+      }
+      
+      .cta-subtitle {
+        font-size: 1rem;
+      }
+      
+      .cta-button {
+        padding: 12px 30px;
+        font-size: 1.1rem;
+      }
     }
   </style>
 </head>
@@ -192,13 +608,14 @@
 
   <!-- Navigation -->
   <nav>
-    <a href="#description">Description</a>
+    <a href="#description"><i class="fas fa-info-circle"></i> Description</a>
+    <a href="#format"><i class="fas fa-chalkboard-teacher"></i> Format</a>
     <a href="#topics"><i class="fas fa-list-ul"></i> Key Topics</a>
     <a href="#audience"><i class="fas fa-users"></i> Who Should Attend?</a>
     <a href="#important-dates"><i class="fas fa-calendar-alt"></i> Important Dates</a>
     <a href="#submission"><i class="fas fa-file-upload"></i> Abstract Submission</a>
     <a href="#program"><i class="fas fa-book-open"></i> Program</a>
-    <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+    <a href="#organizers"><i class="fas fa-user-tie"></i> Organizers</a>
   </nav>
 
   <!-- Main Content -->
@@ -210,81 +627,137 @@
       <p>This one-day interactive workshop will introduce participants to the latest advancements in AI-based medical image analysis, focusing on histopathology, radiology, and multimodal medical imaging. Attendees will gain insights into state-of-the-art deep learning models, image processing techniques, and interpretability methods that are shaping the future of computational pathology and AI-driven diagnostics.</p>
       <p>The workshop is designed to balance theoretical concepts with practical, hands-on experience. Expert speakers will cover key topics such as deep learning architectures, feature extraction, segmentation techniques, dataset challenges, and AI ethics in healthcare. Additionally, using tools, participants will be able to train AI models on real-world medical image datasets.</p>
     </section>
+    
+    <!-- Workshop Format Section - ENHANCED with transparent figures -->
+    <section id="format">
+      <h2>Workshop Format</h2>
+      
+      <div class="format-container">
+        <div class="format-item">
+          <div class="format-bg lectures-bg"></div>
+          <div class="format-icon">
+            <i class="fas fa-chalkboard-teacher"></i>
+          </div>
+          <h3>Expert Talks & Lectures</h3>
+          <p>Learn from domain experts in AI and medical imaging who will share cutting-edge research, methodologies, and insights into the rapidly evolving field of computational pathology and AI-driven diagnostics.</p>
+        </div>
+        
+        <div class="format-item">
+          <div class="format-bg hands-on-bg"></div>
+          <div class="format-icon">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <h3>Hands-on Sessions</h3>
+          <p>Apply deep learning techniques to medical datasets in guided practical sessions. Participants will gain experience with state-of-the-art tools and frameworks for medical image analysis and model development.</p>
+        </div>
+        
+        <div class="format-item">
+          <div class="format-bg panel-bg"></div>
+          <div class="format-icon">
+            <i class="fas fa-comments"></i>
+          </div>
+          <h3>Panel Discussion</h3>
+          <p>Explore challenges, solutions, and the future of AI in healthcare through interactive discussions with experts and peers, addressing both technical and ethical considerations in the field.</p>
+        </div>
+      </div>
+      
+      <!-- Enhanced CTA Section -->
+      <div class="cta-container">
+        <p class="cta-text">Join us for a comprehensive learning experience</p>
+        <p class="cta-subtitle">
+          Bridging the gap between <span class="highlight-text">AI technology and medical applications</span>, 
+          equipping participants with the latest tools and techniques for <span class="highlight-text">medical image analysis</span>.
+        </p>
+       
+      </div>
+    </section>
 
     <!-- Key Topics Section -->
-    <!-- Key Topics Section -->
     <section id="topics">
-        <h2>Key Topics Covered</h2>
-        <div class="topics-grid">
-          <div class="topic-card">
-            <h3>Introduction to AI and Computer Vision in Medical Imaging</h3>
+      <h2>Key Topics Covered</h2>
+      <div class="key-topics-container">
+        <div class="topic-column">
+          <div class="topic-item">
+            <h3><i class="fas fa-brain"></i> Introduction to AI and Computer Vision</h3>
             <ul>
               <li>Fundamentals of AI-driven image analysis</li>
               <li>Role of deep learning in medical imaging</li>
             </ul>
           </div>
-          <div class="topic-card">
-            <h3>Medical Image Processing and Preprocessing Techniques</h3>
+          
+          <div class="topic-item">
+            <h3><i class="fas fa-image"></i> Medical Image Processing</h3>
             <ul>
               <li>Noise reduction, contrast enhancement, and normalization</li>
               <li>Registration and segmentation in medical images</li>
             </ul>
           </div>
-          <div class="topic-card">
-            <h3>Deep Learning Architectures for Medical Image Analysis</h3>
+          
+          <div class="topic-item">
+            <h3><i class="fas fa-network-wired"></i> Deep Learning Architectures</h3>
             <ul>
               <li>Convolutional Neural Networks (CNNs) for classification</li>
               <li>Vision Transformers and their applications</li>
             </ul>
+          </div>
+          
+          <div class="topic-item">
+            <h3><i class="fas fa-microscope"></i> Histopathology Image Analysis</h3>
+            <ul>
+              <li>Whole Slide Image (WSI) processing</li>
+              <li>Tumor detection and grading</li>
+            </ul>
+          </div>
+          
+          <div class="topic-item">
+            <h3><i class="fas fa-project-diagram"></i> Feature Extraction</h3>
+            <ul>
+              <li>Traditional vs. deep learning-based feature extraction</li>
+              <li>Self-supervised and contrastive learning in medical imaging</li>
+            </ul>
+          </div>
         </div>
-        <div class="topic-card">
-          <h3>Histopathology Image Analysis with AI</h3>
-          <ul>
-            <li>Whole Slide Image (WSI) processing</li>
-            <li>Tumor detection and grading</li>
-          </ul>
-        </div>
-        <div class="topic-card">
-          <h3>Feature Extraction and Representation Learning</h3>
-          <ul>
-            <li>Traditional vs. deep learning-based feature extraction</li>
-            <li>Self-supervised and contrastive learning in medical imaging</li>
-          </ul>
-        </div>
-        <div class="topic-card">
-          <h3>Explainability and Interpretability in AI for Healthcare</h3>
-          <ul>
-            <li>Importance of AI explainability in clinical applications</li>
-            <li>Grad-CAM and SHAP for model interpretability</li>
-          </ul>
-        </div>
-        <div class="topic-card">
-          <h3>Dataset Challenges and Ethical Considerations</h3>
-          <ul>
-            <li>Public datasets in medical imaging (TCGA, CAMELYON, etc.)</li>
-            <li>Bias, privacy, and regulatory compliance in AI models</li>
-          </ul>
-        </div>
-        <div class="topic-card">
-          <h3>Multi-Modal Data Fusion in Medical Imaging</h3>
-          <ul>
-            <li>Combining histopathology, radiology, and genomics</li>
-            <li>Multi-modal AI approaches for better diagnosis</li>
-          </ul>
-        </div>
-        <div class="topic-card">
-          <h3>Hands-on Session: Training Deep Learning Models for Medical Imaging</h3>
-          <ul>
-            <li>Practical implementation using TensorFlow/PyTorch</li>
-            <li>Model evaluation metrics and performance analysis</li>
-          </ul>
-        </div>
-        <div class="topic-card">
-          <h3>Challenges and Future Trends in AI for Medical Imaging</h3>
-          <ul>
-            <li>Current limitations and open research questions</li>
-            <li>Future directions in AI-driven healthcare</li>
-          </ul>
+        
+        <div class="topic-column">
+          <div class="topic-item">
+            <h3><i class="fas fa-chart-line"></i> Explainability and Interpretability</h3>
+            <ul>
+              <li>Importance of AI explainability in clinical applications</li>
+              <li>Grad-CAM and SHAP for model interpretability</li>
+            </ul>
+          </div>
+          
+          <div class="topic-item">
+            <h3><i class="fas fa-database"></i> Dataset Challenges and Ethics</h3>
+            <ul>
+              <li>Public datasets in medical imaging (TCGA, CAMELYON, etc.)</li>
+              <li>Bias, privacy, and regulatory compliance in AI models</li>
+            </ul>
+          </div>
+          
+          <div class="topic-item">
+            <h3><i class="fas fa-object-group"></i> Multi-Modal Data Fusion</h3>
+            <ul>
+              <li>Combining histopathology, radiology, and genomics</li>
+              <li>Multi-modal AI approaches for better diagnosis</li>
+            </ul>
+          </div>
+          
+          <div class="topic-item">
+            <h3><i class="fas fa-laptop-code"></i> Hands-on Training Session</h3>
+            <ul>
+              <li>Practical implementation using TensorFlow/PyTorch</li>
+              <li>Model evaluation metrics and performance analysis</li>
+            </ul>
+          </div>
+          
+          <div class="topic-item">
+            <h3><i class="fas fa-lightbulb"></i> Future Trends in AI for Medical Imaging</h3>
+            <ul>
+              <li>Current limitations and open research questions</li>
+              <li>Future directions in AI-driven healthcare</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
@@ -301,40 +774,103 @@
       </ul>
     </section>
 
-    <!-- Important Dates Section -->
+    <!-- Important Dates Section - CREATIVE TIMELINE DESIGN -->
     <section id="important-dates">
       <h2>Important Dates</h2>
-      <p>(To be announced soon)</p>
+      
+      <div class="timeline">
+        <div class="timeline-container left">
+          <div class="timeline-content">
+            <div class="timeline-icon"><i class="fas fa-file-alt"></i></div>
+            <h3>Abstract Submission Deadline</h3>
+            <p class="timeline-date">April 18 (Friday), 2025</p>
+            <p>Submit your abstract for review by this date.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-container right">
+          <div class="timeline-content">
+            <div class="timeline-icon"><i class="fas fa-check-circle"></i></div>
+            <h3>Notification of Acceptance</h3>
+            <p class="timeline-date">April 23 (Wednesday), 2025</p>
+            <p>Authors will be notified about abstract acceptance.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-container left">
+          <div class="timeline-content">
+            <div class="timeline-icon"><i class="fas fa-calendar-day"></i></div>
+            <h3>Workshop Date</h3>
+            <p class="timeline-date">April 28 (Monday), 2025</p>
+            <p>One-day interactive workshop from 10:00 AM – 3:00 PM</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Venue section with transparent atrium building image -->
+      <div class="venue-container">
+        <div class="venue-bg atrium-bg"></div>
+        <div class="venue-icon">
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <p class="venue-details"><strong>Workshop Venue</strong></p>
+        <p class="venue-details">Room J217, Atrium Building</p>
+        <p class="venue-address">Kennesaw State University</p>
+      </div>
     </section>
 
     <!-- Abstract Submission Section -->
     <section id="submission">
       <h2>Abstract Submission</h2>
-      <p>Please submit an abstract via the online submission system. Details on submission guidelines and deadlines will be added soon.</p>
-     
+      <p>Please submit an abstract via the online submission system by April 18, 2025.</p>
+      <a href="https://forms.office.com/r/GTiN92prfm" class="button" target="_blank"><i class="fas fa-paper-plane"></i> Submit Abstract</a>
     </section>
 
     <!-- Program Section -->
     <section id="program">
       <h2>Program</h2>
-      <p>The program schedule will be announced shortly. Stay tuned for updates!</p>
+      <p>The detailed program schedule will be announced shortly. The workshop will take place on April 28, 2025, from 10:00 AM to 3:00 PM.</p>
+    </section>
+
+    <!-- Organizers Section -->
+    <section id="organizers">
+      <h2>Organizers</h2>
+      <div class="program-committee">
+        <h3><i class="fas fa-user-tie"></i> Program Organizer</h3>
+        <div class="committee-member">
+          <i class="fas fa-user"></i> Sanghoon Lee, Department of Computer Science, CCSE, Kennesaw State University
+        </div>
+        
+        <h3><i class="fas fa-users-cog"></i> Program Committee Members</h3>
+        <div class="committee-member">
+          <i class="fas fa-user"></i> Ramazan Aygun, Department of Computer Science, CCSE, Kennesaw State University
+        </div>
+        <div class="committee-member">
+          
+        
+          <i class="fas fa-user"></i> Mahmut Karakaya, Department of Computer Science, CCSE, Kennesaw State University
+        </div>
+        <div class="committee-member">
+          <i class="fas fa-user"></i> Chen Zhao, Department of Computer Science, CCSE, Kennesaw State University
+        </div>
+        
+        <h3><i class="fas fa-laptop-code"></i> Web Master</h3>
+        <div class="committee-member">
+          <i class="fas fa-user"></i> Sai Chandana Koganti, Department of Computer Science, CCSE, Kennesaw State University
+        </div>
+      </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>For any inquiries, please contact us at:</p>
-      <ul>
-        <li>Email: </li>
-        <li>Phone: </li>
-      </ul>
-    </section>
+   
   </div>
+
+ 
 
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 AI and Computer Vision in Medical Imaging Workshop. All rights reserved.</p>
-   
+
   </footer>
 </body>
 </html>
